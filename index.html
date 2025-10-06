@@ -101,7 +101,7 @@
   <main>
     <h1>View Our PDF Flipbook</h1>
     <div class="pdf-container">
-      <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/4831bfb098.html" style="border: 1px solid lightgray; width: 100%; height: 700px;"></iframe>
+      <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" src="" style="border: 1px solid lightgray; width: 100%; height: 700px;"></iframe>
     </div>
   </main>
 
@@ -114,5 +114,18 @@
     </div>
   </footer>
 
+  <script>
+    // Grab query params
+    const params = new URLSearchParams(window.location.search);
+    const bookId = params.get("book"); // e.g. ?book=3y49832984f
+    
+    // Fallback if nothing passed
+    const finalId = bookId ? bookId : "default";
+    
+    // Inject into iframe
+    document.getElementById("flipbookFrame").src =
+      "https://heyzine.com/flip-book/" + finalId + ".html";
+  </script>
 </body>
 </html>
+
